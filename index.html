@@ -300,7 +300,8 @@
 
         function processContent(text) {
             const urlRegex = /https?:\/\/[a-zA-Z0-9\-\._~:\/?#\[\]@!$&'\(\)*+,;=%]+/g;
-            allMatches = text.match(urlRegex) || [];
+            const matches = text.match(urlRegex) || [];
+            allMatches = [...new Set(matches)];
 
             statusMsg.classList.add('hidden');
 
